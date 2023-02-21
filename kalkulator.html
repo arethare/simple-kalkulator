@@ -15,9 +15,12 @@
     <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
     <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
-    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
+    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br>
+    <input type="radio" name="operator" id="modulus" onclick="modulus()">modulus<br>
+    <input type="radio" name="operator" id="pangkat" onclick="pangkat()">pangkat<br>
+    <input type="radio" name="operator" id="'persen" onclick="persen()">persen<br><br>
   <label>Hasil:</label>
-    <input type="text" id="hasil" disabled><br>
+    <input type="text" id="hasil" disabled>
   <button type= "button" onclick="resetNilai()">reset</button>
 
     <script>
@@ -48,7 +51,6 @@
         {
           prosesTambah += parseInt(nilai[a]);
         }
-        // console.log(prosesTambah);
         return printHasil(prosesTambah);
       }
 
@@ -59,7 +61,6 @@
         return printHasil(prosesKurang);
       }
       
-
       function kali()
       {
         nilai = ambilNilai();
@@ -74,6 +75,27 @@
         return printHasil(prosesBagi);
       }
 
+      function modulus()
+      {
+        nilai = ambilNilai();
+        prosesModulus = parseInt(nilai[0]) % parseInt(nilai[1])
+        return printHasil(prosesModulus);
+      }
+
+      function pangkat()
+      {
+        nilai = ambilNilai();
+        prosesPangkat = Math.pow(parseInt(nilai[0]) , (nilai[1]));
+        return printHasil(prosesPangkat);
+      }
+
+      function persen()
+      {
+        nilai = ambilNilai();
+        prosesPersen = parseInt(nilai[0]) * (nilai[1]) /100; 
+        return printHasil(prosesPersen);
+      }
+
       function resetNilai()
       {
         document.getElementById('input1').value = '';
@@ -83,7 +105,10 @@
         document.getElementById('kurang').checked = false;
         document.getElementById('kali').checked = false;
         document.getElementById('bagi').checked = false;
+        document.getElementById('modulus').checked = false;
+        document.getElementById('pangkat').checked = false;
       }
+
     </script>
 </body>
 </html>
